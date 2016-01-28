@@ -14,7 +14,7 @@ MAINTAINER Marc Villacorta Morera <marc.villacorta@gmail.com>
 # Install:
 #------------------------------------------------------------------------------
 
-RUN apk add --update openldap
+RUN apk add --update openldap bash
 
 #------------------------------------------------------------------------------
 # Populate root file system:
