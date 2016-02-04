@@ -1,3 +1,34 @@
 #!/bin/bash
 
-while true; do date; sleep 1; done
+#------------------------------------------------------------------------------
+# Configure the service:
+#------------------------------------------------------------------------------
+
+CONFIG_FILE='/etc/openldap/slapd.conf'
+
+# File containing recognized CA certs:
+: ${CA_CERT_FILE:-'/etc/ssl/certs'} && \
+sed -i "s|XXX-CA_CERT_FILE-XXX|${CA_CERT_FILE}|" ${CONFIG_FILE}
+
+# Slapd server certificate:
+: ${CERT_FILE:-'/etc/ssl/certs'} && \
+sed -i "s|XXX-CERT_FILE-XXX|${CERT_FILE}|" ${CONFIG_FILE}
+
+# Slapd server private key:
+: ${CERT_KEY_FILE:-'/etc/ssl/certs'} && \
+sed -i "s|XXX-CERT_KEY_FILE-XXX|${CERT_KEY_FILE}|" ${CONFIG_FILE}
+
+# Upstream LDAP server IP:
+: ${LDAP_UPSTREAM_IP:-'127.0.0.1'} && \
+sed -i "s/XXX-LDAP_UPSTREAM_IP-XXX/${LDAP_UPSTREAM_IP}/g" ${CONFIG_FILE}
+
+# Upstream LDAP server suffix:
+: ${LDAP_UPSTREAM_SUFFIX:-''} && \
+sed -i "s/XXX-LDAP_UPSTREAM_SUFFIX-XXX/${LDAP_UPSTREAM_SUFFIX}/" ${CONFIG_FILE}
+
+#-----------------------------------------------------------------------------
+# Run:
+#-----------------------------------------------------------------------------
+
+cat ${CONFIG_FILE}
+#slaptest -f ${CONFIG_FILE} && exec slapd -d 1
