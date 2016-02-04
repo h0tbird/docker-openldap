@@ -24,7 +24,5 @@ docker run -it --rm \
 --env CERT_KEY_FILE=/certs/server-key.pem \
 --env LDAP_UPSTREAM_IP=127.0.0.1 \
 --env LDAP_UPSTREAM_SUFFIX=dc=company,dc=com \
---env CONFIG_ROOTDN=cn=config \
---env CONFIG_ROOTPW=secret \
 h0tbird/openldap:latest
 ```

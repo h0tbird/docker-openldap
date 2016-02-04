@@ -18,14 +18,6 @@ sed -i "s|XXX-CERT_FILE-XXX|${CERT_FILE}|" ${CONFIG_FILE}
 : ${CERT_KEY_FILE:-'/etc/ssl/certs'} && \
 sed -i "s|XXX-CERT_KEY_FILE-XXX|${CERT_KEY_FILE}|" ${CONFIG_FILE}
 
-# Distinguished name not subject to restrictions:
-: ${CONFIG_ROOTDN:-'cn=config'} && \
-sed -i "s|XXX-CONFIG_ROOTDN-XXX|${CONFIG_ROOTDN}|" ${CONFIG_FILE}
-
-# Password (or hash of the password) for the rootdn:
-: ${CONFIG_ROOTPW:-'secret'} && \
-sed -i "s|XXX-CONFIG_ROOTPW-XXX|${CONFIG_ROOTPW}|" ${CONFIG_FILE}
-
 # Upstream LDAP server IP:
 : ${LDAP_UPSTREAM_IP:-'127.0.0.1'} && \
 sed -i "s/XXX-LDAP_UPSTREAM_IP-XXX/${LDAP_UPSTREAM_IP}/g" ${CONFIG_FILE}
