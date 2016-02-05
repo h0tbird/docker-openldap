@@ -19,10 +19,10 @@ mkdir certs && openssl req \
 docker run -it --rm \
 --net host --name openldap \
 --volume ${PWD}/certs:/certs \
---env CA_CERT_FILE=/certs/server-crt.pem \
+--env CA_CERT_PATH=/certs \
 --env CERT_FILE=/certs/server-crt.pem \
 --env CERT_KEY_FILE=/certs/server-key.pem \
---env LDAP_UPSTREAM_IP=127.0.0.1 \
+--env LDAP_UPSTREAM_URI=ldaps://127.0.0.1:636 \
 --env LDAP_UPSTREAM_SUFFIX=dc=company,dc=com \
 h0tbird/openldap:latest
 ```

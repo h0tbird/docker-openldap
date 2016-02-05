@@ -14,7 +14,8 @@ MAINTAINER Marc Villacorta Morera <marc.villacorta@gmail.com>
 # Install:
 #------------------------------------------------------------------------------
 
-RUN apk add --update openldap openldap-back-ldap bash
+RUN apk add --update strace openldap openldap-back-ldap openssl bash \
+    && rm -rf /tmp/* /var/cache/apk/*
 
 #------------------------------------------------------------------------------
 # Populate root file system:
