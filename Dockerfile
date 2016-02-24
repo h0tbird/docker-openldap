@@ -6,15 +6,10 @@ FROM alpine:3.3
 MAINTAINER Marc Villacorta Morera <marc.villacorta@gmail.com>
 
 #------------------------------------------------------------------------------
-# Environment variables:
-#------------------------------------------------------------------------------
-
-
-#------------------------------------------------------------------------------
 # Install:
 #------------------------------------------------------------------------------
 
-RUN apk add --update strace openldap openldap-back-ldap openssl bash \
+RUN apk add --update openldap openldap-back-ldap openssl bash \
     && rm -rf /tmp/* /var/cache/apk/*
 
 #------------------------------------------------------------------------------
