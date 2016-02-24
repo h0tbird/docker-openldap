@@ -32,4 +32,4 @@ sed -i "s/XXX-LDAP_UPSTREAM_SUFFIX-XXX/${LDAP_UPSTREAM_SUFFIX}/" ${CONFIG_FILE}
 
 cat ${CONFIG_FILE}
 export SSL_CERT_DIR=${SSL_CERT_DIR:-/certs} && c_rehash ${SSL_CERT_DIR}
-slaptest -f ${CONFIG_FILE} && exec env strace -s 100 -f -o log slapd -d 2
+slaptest -f ${CONFIG_FILE} && exec env slapd -d 2

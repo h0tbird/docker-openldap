@@ -20,6 +20,7 @@
       "privileged": false,
       "forcePullImage": true,
       "parameters": [
+        { "key": "env", "value": "SSL_CERT_DIR=/mnt/mesos/sandbox/certs" },
         { "key": "env", "value": "CA_CERT_PATH=/mnt/mesos/sandbox/certs" },
         { "key": "env", "value": "CERT_FILE=/mnt/mesos/sandbox/certs/server-crt.pem" },
         { "key": "env", "value": "CERT_KEY_FILE=/mnt/mesos/sandbox/certs/server-key.pem" },
